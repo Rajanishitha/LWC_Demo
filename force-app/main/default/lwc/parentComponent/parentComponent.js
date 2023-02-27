@@ -21,4 +21,8 @@ export default class ParentComponent extends LightningElement {
                }
             } 
         }
+    hanldeProgressValueChange(event) {
+        console.log('From child to Parent');
+        this.template.querySelector("c-displayrecord").handlervalue();
+    }
 }

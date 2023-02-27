@@ -3,13 +3,17 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class Childone extends LightningElement {
     @api objectname;
-    handleSuccess(event) {
+    handleSuccess(event) {  
         const evt = new ShowToastEvent({
             title: ' Record created',
             message: 'Record ID: ' + event.detail.id,
             variant: 'success',
         });
         this.dispatchEvent(evt);
+        const selectedEvent = new CustomEvent("progressvaluechange");
+       
+          // Dispatches the event.
+          this.dispatchEvent(selectedEvent);
         /*getAccountRecord()
         .then((result) => {
             console.log('Inside Apex ');
