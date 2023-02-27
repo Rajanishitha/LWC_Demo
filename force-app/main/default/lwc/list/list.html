@@ -1,0 +1,41 @@
+<template>
+<lightning-card title="Create Records">    
+    
+<select class="slds-select" name = "optionSelect" onchange={changeHandler} >
+    <option value="Select the Object">Select the object</option>
+    <option value="Account">Account</option>
+    <option value="Opportunity">Opportunity</option>
+    <option value="Contact">Contact</option>
+</select> 
+<template if:true={contactblock}>
+    <lightning-card title="Create Contact">
+       
+    </lightning-card>
+</template>
+<template if:true={accountblock}>
+    <lightning-record-form
+    object-api-name='Account'
+    fields={fields}
+    onsuccess={handleSuccess}
+>
+</lightning-record-form>
+</template>
+<template if:true={accountblock}>
+    <lightning-card title="Account List">
+    <lightning-datatable key-field="id"
+    data={Accountdata}
+    columns={columns}
+    onrowselection={selectedrowsupdate}
+    ></lightning-datatable>
+</lightning-card>
+</template>
+<template if:true={opportunityblock}>
+    <lightning-card title="Opportunities List"></lightning-card>
+</template>
+<template if:true={contactblock}>
+    <lightning-card title="Contact List"></lightning-card>
+</template>
+
+</lightning-card>
+
+</template>

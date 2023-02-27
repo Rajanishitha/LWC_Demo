@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Create And Display Records">
+        <lightning-layout>
+            <lightning-layout-item class="slds-p-around_xx-small" size=12>
+            <h1>Select Object</h1>
+            <select class="slds-select" name = "optionSelect" onchange={changeHandler} >
+                <option value="Select the Object">Select the object</option>
+                <option value="Account">Account</option>
+                <option value="Opportunity">Opportunity</option>
+                <option value="Contact">Contact</option>
+            </select> 
+        </lightning-layout-item>
+        </lightning-layout>
+        <template if:true={blockvisible}>
+        <lightning-layout>
+            <lightning-layout-item class="slds-p-around_xx-small" size=6>
+                <h1>Create Records</h1>
+                <c-asssignment1 objectname={objectName}></c-asssignment1>
+            </lightning-layout-item>
+            <lightning-layout-item class="slds-p-around_xx-small" size=6>
+                <h1>Display Record</h1>
+                <c-displayrecord ></c-displayrecord >
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+    </lightning-card>
+
+</template>
